@@ -1,0 +1,35 @@
+﻿@model IEnumerable<StronglyTypedView.Models.StudentModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <thead style="background-color:aqua; color:blue; border:1px">
+                <tr>
+                    <td><b>Student Id</b></td>
+                    <td><b>Student Name</b></td>
+                    <td><b>Student Mark</b></td>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.StudentId</td>
+                    <td>@item.StudentName</td>
+                    <td>@item.Marks</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

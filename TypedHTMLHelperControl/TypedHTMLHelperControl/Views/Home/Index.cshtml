@@ -1,0 +1,31 @@
+﻿@model TypedHTMLHelperControl.Models.JobModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using (Html.BeginForm("Save", "Home", FormMethod.Get))
+    {
+        <fieldset style="background-color:lightgreen;font-size:x-large;width=50%">
+            <legend>Job Registration</legend>
+            Name : @Html.TextBoxFor(u=>u.Name)<br />
+            Password: @Html.PasswordFor(u=>u.Password)<br />
+            Gender: @Html.RadioButtonFor(u=>u.Gender,"Male") Male &nbsp;
+                    @Html.RadioButtonFor(u=>u.Gender,"Female") Female<br />
+            Country: @Html.DropDownListFor(u=>u.Country, new SelectList(ViewBag.Countries))<br />
+            SkillSets: @Html.ListBoxFor(u => u.Skillset, new SelectList(ViewBag.Courses))<br />
+            @Html.EditorFor(u=>u.TermsAccepted) I Accept the Term And Conditions.
+            <input type="submit" value="Save" />
+        </fieldset>
+    }
+   
+</body>
+</html>

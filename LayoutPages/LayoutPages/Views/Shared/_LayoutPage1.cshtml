@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <table style="background-color:lightblue; font-size:large; width:100%;">
+            <tr>
+                <td style="width:30%">
+                    <img src="~/images/th.jpg" height="150" width="150" />
+                </td>
+                <td style="width:70%">
+                    <h2>Way to Success...</h2>
+                    <a href="~/home/aboutus">About Us</a> &nbsp;&nbsp;
+                    <a href="~/home/contactus">Contact Us</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:30%">
+                    <a href="~/home/tutorial">Tutorials</a><br />
+                    <a href="~/home/book">Books</a>
+                </td>
+                <td style="width:70%; background-color:blueviolet" >
+                    @RenderBody()
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    copyrights&copy;reserved.
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" style="background-color:brown">
+                    @RenderSection("s1",true)
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
