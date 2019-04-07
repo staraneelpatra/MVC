@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+@using (Html.BeginForm("Save", "Home", "POST"))
+{
+    <div> 
+       
+    Name : @Html.TextBox("un")<br />
+
+        Gender : @Html.RadioButton("r1", "Female") Female &nbsp; @Html.RadioButton("r1", "Male")
+      <input type="submit" value="Save" />
+    </div>
+}
+</body>
+</html>

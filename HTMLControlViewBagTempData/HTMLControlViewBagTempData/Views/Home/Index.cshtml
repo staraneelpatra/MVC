@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <form method="post" action="~/home/Validate">
+        Username:<input type="text" name="txtun" value="@ViewBag.un" />
+        <br />
+        Password:<input type="password" name="txtpwd" value="@ViewBag.pwd" />
+        <br />
+        <input type="submit" value="Login" />
+        @if (ViewBag.msg != null)
+        {
+            <h4 style="color:red;">
+                @ViewBag.msg
+            </h4>
+        }
+    </form>
+</body>
+</html>
