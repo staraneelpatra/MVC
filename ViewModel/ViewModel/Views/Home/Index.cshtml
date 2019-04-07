@@ -1,0 +1,28 @@
+﻿@model ViewModel.Models.FSViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <table>
+            <tr>
+                <td>@Model.Faculty.Fid</td>
+                <td>@Model.Faculty.Fname</td>
+            </tr>
+            <tr style="background-color:darkolivegreen">
+                <td>@Model.Student.Sid</td>
+                <td>@Model.Student.Sname</td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
