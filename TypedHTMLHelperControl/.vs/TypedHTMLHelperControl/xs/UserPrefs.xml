@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{84CEFBD5-C7F9-4C30-B5B4-3983428BA5A5}|">
+  <MonoDevelop.Ide.ItemProperties.TypedHTMLHelperControl PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="TypedHTMLHelperControl/Views/Home/Save.cshtml">
+    <Files>
+      <File FileName="TypedHTMLHelperControl/Controllers/HomeController.cs" Line="37" Column="32" />
+      <File FileName="TypedHTMLHelperControl/Models/JobModel.cs" Line="17" Column="2" />
+      <File FileName="TypedHTMLHelperControl/Views/Home/Save.cshtml" Line="23" Column="8" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="TypedHTMLHelperControl" expanded="True">
+            <Node name="TypedHTMLHelperControl" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="Models" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="Home" expanded="True">
+                  <Node name="Save.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
