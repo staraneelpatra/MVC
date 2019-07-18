@@ -3,7 +3,7 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="TypedHTMLHelperControl/Views/Home/Save.cshtml">
     <Files>
       <File FileName="TypedHTMLHelperControl/Controllers/HomeController.cs" Line="37" Column="32" />
-      <File FileName="TypedHTMLHelperControl/Models/JobModel.cs" Line="17" Column="2" />
+      <File FileName="TypedHTMLHelperControl/Models/JobModel.cs" />
       <File FileName="TypedHTMLHelperControl/Views/Home/Save.cshtml" Line="25" Column="1" />
     </Files>
     <Pads>
@@ -11,11 +11,12 @@
         <State name="__root__">
           <Node name="TypedHTMLHelperControl" expanded="True">
             <Node name="TypedHTMLHelperControl" expanded="True">
-              <Node name="Packages" selected="True" />
               <Node name="Controllers" expanded="True" />
               <Node name="Models" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
+                <Node name="Home" expanded="True">
+                  <Node name="Save.cshtml" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
