@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <h2>display mvc article info</h2>
+    <div style="background-color:bisque;font-size:x-large;width:40%">
+        enter comment:
+        <form method="post" action="~/home/store">
+            <textarea name="t1" rows="5" cols="20"></textarea> <br />
+            <input type="submit" value="submit" />
+        </form>
+    </div>
+    <h3>reader comments:</h3>
+    <div style="font-size:x-large">
+        @Html.Raw(HttpContext.Current.Application["comments"].ToString())
+    </div>
+</body>
+
+
+
+
+
+</html>

@@ -1,0 +1,33 @@
+﻿@model mvccodefirstapp.Models.dept
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>editdept</title>
+</head>
+<body>
+    @using(Html.BeginForm())
+    {
+        <fieldset>
+            <legend>modify dept</legend>
+            deptno:@Html.DisplayFor(d=>d.deptno)
+            @Html.HiddenFor(d=>d.deptno)
+            <br />
+            dname:@Html.TextBoxFor(d=>d.dname)
+            <br />
+            <input type="submit" value="modify" />
+        </fieldset>
+    }
+ 
+    
+    
+       
+</body>
+</html>

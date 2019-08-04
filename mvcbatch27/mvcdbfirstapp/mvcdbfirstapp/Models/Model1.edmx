@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="mvcbatch27Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="cateid" />
+          </Key>
+          <Property Name="cateid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="catename" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="prodid" />
+          </Key>
+          <Property Name="prodid" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="prodname" Type="nvarchar" MaxLength="50" />
+          <Property Name="prodprice" Type="int" />
+          <Property Name="cateid" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__product__cateid__4BAC3F29">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="cateid" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="cateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="addproduct" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="prodid" Type="nvarchar" Mode="In" />
+          <Parameter Name="prodname" Type="nvarchar" Mode="In" />
+          <Parameter Name="prodprice" Type="int" Mode="In" />
+          <Parameter Name="cateid" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="mvcbatch27ModelStoreContainer">
+          <EntitySet Name="category" EntityType="Self.category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="product" EntityType="Self.product" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__product__cateid__4BAC3F29" Association="Self.FK__product__cateid__4BAC3F29">
+            <End Role="category" EntitySet="category" />
+            <End Role="product" EntitySet="product" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="mvcbatch27Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="category">
+          <Key>
+            <PropertyRef Name="cateid" />
+          </Key>
+          <Property Name="cateid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="catename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="products" Relationship="Self.FK__product__cateid__4BAC3F29" FromRole="category" ToRole="product" />
+        </EntityType>
+        <EntityType Name="product">
+          <Key>
+            <PropertyRef Name="prodid" />
+          </Key>
+          <Property Name="prodid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="prodname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="prodprice" Type="Int32" />
+          <Property Name="cateid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="category" Relationship="Self.FK__product__cateid__4BAC3F29" FromRole="product" ToRole="category" />
+        </EntityType>
+        <Association Name="FK__product__cateid__4BAC3F29">
+          <End Role="category" Type="Self.category" Multiplicity="0..1" />
+          <End Role="product" Type="Self.product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="category">
+              <PropertyRef Name="cateid" />
+            </Principal>
+            <Dependent Role="product">
+              <PropertyRef Name="cateid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="mvcbatch27Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="categories" EntityType="Self.category" />
+          <EntitySet Name="products" EntityType="Self.product" />
+          <AssociationSet Name="FK__product__cateid__4BAC3F29" Association="Self.FK__product__cateid__4BAC3F29">
+            <End Role="category" EntitySet="categories" />
+            <End Role="product" EntitySet="products" />
+          </AssociationSet>
+          <FunctionImport Name="addproduct">
+            <Parameter Name="prodid" Mode="In" Type="String" />
+            <Parameter Name="prodname" Mode="In" Type="String" />
+            <Parameter Name="prodprice" Mode="In" Type="Int32" />
+            <Parameter Name="cateid" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="mvcbatch27ModelStoreContainer" CdmEntityContainer="mvcbatch27Entities">
+          <EntitySetMapping Name="categories">
+            <EntityTypeMapping TypeName="mvcbatch27Model.category">
+              <MappingFragment StoreEntitySet="category">
+                <ScalarProperty Name="cateid" ColumnName="cateid" />
+                <ScalarProperty Name="catename" ColumnName="catename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="products">
+            <EntityTypeMapping TypeName="mvcbatch27Model.product">
+              <MappingFragment StoreEntitySet="product">
+                <ScalarProperty Name="prodid" ColumnName="prodid" />
+                <ScalarProperty Name="prodname" ColumnName="prodname" />
+                <ScalarProperty Name="prodprice" ColumnName="prodprice" />
+                <ScalarProperty Name="cateid" ColumnName="cateid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="addproduct" FunctionName="mvcbatch27Model.Store.addproduct" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

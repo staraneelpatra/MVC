@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <table style="background-color:bisque;width:100%;font-size:x-large">
+        <tr>
+            <td colspan="2">
+                xyz fresh site
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a  onclick="f1()">
+                    add product
+                </a> <br />
+                <a href="#" onclick="f2()">
+                    display prods
+                </a>
+            </td>
+            <td>
+                <div id="div1"></div>
+            </td>
+        </tr>
+    </table>
+    <script>
+        function f1()
+        {
+            $("#div1").html("<img src='/images/circle.gif'>");
+            $("#div1").load("/inventory/addproduct");
+            //div1 will show animated circle till addproduct content comes from server
+        }
+        function f2()
+        {
+            $("#div1").load("/inventory/display").html("<img src='/images/circle.gif'>");//this is similar to above 2 lines
+            //1st exec will be html method than load method
+        }
+    </script>
+
+
+
+
+
+    
+</body>
+</html>

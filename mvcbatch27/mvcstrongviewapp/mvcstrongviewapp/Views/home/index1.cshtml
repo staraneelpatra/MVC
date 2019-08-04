@@ -1,0 +1,43 @@
+﻿@model IEnumerable<mvcstrongviewapp.Models.studentmodel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index1</title>
+</head>
+<body>
+    @{
+        //Model.Add(new mvcstrongviewapp.Models.studentmodel { studid = "s003", studname = "xyz", studphoto = "3.jpg" });//this will add an object into a collection[obj2] returned by index1 action method
+    }
+    <table style="background-color:bisque;font-size:x-large" border="1">
+        <tr>
+            <th>sid</th><th>name</th><th>photo</th>
+        </tr>
+        @foreach(var s in Model)
+        {
+            <tr>
+                <td>
+                    @s.studid
+                </td>
+                <td>
+                    @s.studname
+                </td>
+                <td>
+                    <img src="~/images/@s.studphoto" height="60" width="60" />
+                </td>
+            </tr>
+      }
+    </table>
+
+
+
+
+
+    
+</body>
+</html>

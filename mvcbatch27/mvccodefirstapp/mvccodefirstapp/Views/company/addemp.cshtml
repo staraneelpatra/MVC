@@ -1,0 +1,38 @@
+﻿@model mvccodefirstapp.Models.emp
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>addemp</title>
+</head>
+<body>
+    @using(Html.BeginForm())
+    {
+        <fieldset>
+            <legend>add emp</legend>
+            empno:@Html.TextBoxFor(e=>e.empno) <br />
+            ename:@Html.TextBoxFor(e=>e.ename)
+            <br />
+            sal:@Html.TextBoxFor(e=>e.sal) <br />
+            deptno:@Html.DropDownListFor(e=>e.deptno,ViewBag.depts as IEnumerable<SelectListItem>,"-select-")
+            <br />
+            <input type="submit" value="save" />
+        </fieldset>
+     }
+
+
+
+   
+
+
+
+
+</body>
+</html>

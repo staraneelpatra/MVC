@@ -1,0 +1,50 @@
+﻿@model mvcbankapp.Models.customermodel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using(Html.BeginForm("manips","demo",FormMethod.Post))
+    {
+        <div class="container" style="background-color:lightgray;border:4px solid red;font-size:large;">
+            <div class="row">
+                <div class="col-md-5">accno:</div>
+                 
+                <div class="col-md-5">@Html.TextBoxFor(c => c.accno, new { @Value = ViewBag.accno })
+                    <input type="submit" id="b1" value="search" name="command" />
+                </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-5"> name:</div>
+                    <div class="col-md-5">@Html.TextBoxFor(c => c.accname, new { @Value = ViewBag.accname })</div>
+                </div> 
+                <div class="row">
+                    <div class="col-md-5">bal:</div>
+                    <div class="col-md-5">@Html.TextBoxFor(c => c.accbal, new { @Value = ViewBag.accbal })</div>
+                </div> 
+                <div class="row">
+                    <div class="col-md-12">
+                        <input type="submit" id="b2" value="save" name="command" />
+                    </div>
+                    </div>
+            <div class="row">
+                <div class="col-md-12">
+                    @ViewBag.msg
+                </div>
+            </div>
+       </div>
+    }
+</body>
+
+
+
+</html>

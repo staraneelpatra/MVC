@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using(Html.BeginForm("store","home",FormMethod.Post))
+    {
+        <div style="background-color:bisque;font-size:x-large;width:40%">
+            name:@Html.TextBox("txtcustname") <br />
+            roomtype:@Html.RadioButton("r1","delux") delux
+            @Html.RadioButton("r1","ordinary") ordinary
+            <br />
+            amenities:@Html.CheckBox("c1") boarding
+            @Html.CheckBox("c2") wifi
+            <br />
+            <input type="submit" value="register" />
+       </div>
+     }
+
+
+    
+</body>
+</html>

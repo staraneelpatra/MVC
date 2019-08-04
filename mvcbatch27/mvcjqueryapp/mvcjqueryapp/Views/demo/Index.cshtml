@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body onload="f1()">
+    <input type="button" id="b1" value="click here" onclick="f2()" />
+    <br />
+    <span id="s1" style="background-color:bisque;font-size:x-large">xxxxx</span>
+    <br />
+    <h2 style="background-color:black;color:white;width:30%" onclick="f3()">new tutorials</h2>
+     <div id="div1" style="background-color:lightblue;font-size:x-large;width:30%">
+         <a href="~/demo/wcf">wcf</a> <br />
+         <a href="~/demo/mvc">mvc</a> <br />
+         <a href="~/demo/angular">angular js</a>
+     </div>
+    <script>
+        function f1()
+        {//body onload func[this will be executed once DOM->html elements are loaded by browser]
+            $("#div1").hide();
+        }
+        function f2()
+        {//button click function
+            $("#s1").html("button clicked..");
+            $("#b1").fadeOut(8000);
+        }
+        function f3()
+        {//h2 tutorials click
+            $("#div1").toggle(4000);
+        }
+    </script>
+</body>
+
+
+
+
+
+
+</html>

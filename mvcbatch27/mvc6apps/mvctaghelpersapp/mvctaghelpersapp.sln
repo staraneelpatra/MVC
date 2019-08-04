@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E6FE0905-82CA-429A-8CB7-AE158A9E7AAE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CD7974DE-6886-42F0-ACC2-01496D05FCEA}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "mvctaghelpersapp", "src\mvctaghelpersapp\mvctaghelpersapp.xproj", "{B3F68DE4-6A53-4AF8-AF0E-89FB2F3E652C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3F68DE4-6A53-4AF8-AF0E-89FB2F3E652C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3F68DE4-6A53-4AF8-AF0E-89FB2F3E652C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3F68DE4-6A53-4AF8-AF0E-89FB2F3E652C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3F68DE4-6A53-4AF8-AF0E-89FB2F3E652C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B3F68DE4-6A53-4AF8-AF0E-89FB2F3E652C} = {E6FE0905-82CA-429A-8CB7-AE158A9E7AAE}
+	EndGlobalSection
+EndGlobal

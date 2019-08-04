@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script>
+        var app = angular.module("app1", []);
+        app.controller("ctrl", function ($scope) {
+            $scope.coures = ["asp.net", "c#", "sqlserver"];//javascript array object[pojo--               >plain old javascript object]
+            var products = [{ pid: "poo1", name: "nokia", price: 6000, pic: "1.jpg" }, { pid: "p002", name: "samsung", price: 9000, pic: "2.jpg" }, { pid: "p003", name: "samsung", price: 3000, pic: "3.jpg" }];//array of json objects
+
+            $scope.category = { cid: "c001", name: "mobiles",prods:products };//single json object
+        });
+    </script>
+
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index2</title>
+</head>
+<body ng-app="app1" ng-controller="ctrl">
+    <ul style="font-size:x-large;">
+        <li ng-repeat="c in coures">
+            {{c|uppercase}}
+        </li>
+    </ul>
+    <hr />
+    <div style="font-size:x-large">
+        cateid:{{category.cid}}  name:{{category.name}}
+    </div>
+    <table style="font-size:x-large;" border="1">
+        <tr>
+            <th>pid</th><th>name</th><th>price</th><th></th>
+        </tr>
+        <tr ng-repeat="p in category.prods|orderBy:'price'">
+            <td>{{p.pid}}</td>
+            <td>{{p.name|uppercase}}</td>
+            <td>{{p.price|currency:"Rs."}}</td>
+            <td>
+                <img height="50px" width="50px" src="~/images/{{p.pic}}" />
+            </td>
+        </tr>
+   </table>
+</body>
+
+
+
+</html>

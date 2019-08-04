@@ -1,0 +1,35 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script>
+        var app = angular.module("myapp", []);
+        app.controller("ctrl", function ($scope, $rootScope) {
+            $rootScope.institutename = "peers info";
+            var courses = ["asp.net", "mvc", "angularjs"];
+            $scope.author = { name: "rlp", subjects: courses };
+        });
+    </script>
+    <meta name="viewport" content="width=device-width" />
+    <title>index5</title>
+</head>
+<body ng-app="myapp">
+    <h2><u>{{institutename}}</u></h2>
+    <div  ng-controller="ctrl">
+        <h2>faculty name:{{author.name}}</h2>
+        <ul style="font-size:x-large">
+            <li ng-repeat="s in author.subjects">
+                {{s}}
+            </li>
+        </ul>
+        
+         
+    </div>
+</body>
+</html>

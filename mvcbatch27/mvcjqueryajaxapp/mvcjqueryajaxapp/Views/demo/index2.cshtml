@@ -1,0 +1,70 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>index2</title>
+</head>
+<body>
+    <h3>enter product name</h3>
+    <input type="text" id="t1" onkeyup="f1()" /><br />
+    <img id="img1" src="~/images/circle.gif" height="60" width="60" /> <br />
+    <table id="table1" style="font-size:x-large;" border="1">
+        <tr>
+            <td>pid</td>
+            <td>name</td>
+            <td></td>
+        </tr>
+    </table>
+    <script>
+        $(function () {
+            $("#img1").hide();
+        });
+        function f1()
+        {//textbox t1 keyup event func
+            alert($("#t1").val());
+            $.ajax({
+                url: "/demo/getprods1",
+                type: "post",
+                cache: false,
+                data: { "s": $("#t1").val() },
+                beforeSend: function () {
+                    $("#img1").show();
+                },
+                success: getprods1result,
+                error: function () {
+                    alert("server error");
+                },
+                complete: function () {
+                    $("#img1").hide();
+                }
+            });//closing ajax call
+        }//closing func f1
+        function getprods1result(r)
+        {//para r will receive prods info,those prod names starting with char[s] typed with in textbox
+            $("#table1 tr:gt(0)").remove();//it will delete all the table rows except 1st row[index 0 with col headings]
+            $.each(r, function (i, p) {
+                $("#table1").append("<tr><td>" + p.prodid + "</td><td>" + p.prodname + "</td><td><a href=/demo/details/" + p.prodid + " target=_blank>more..</a></td></tr>");
+            });//closing each
+        }//closing func
+    </script>
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

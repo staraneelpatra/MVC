@@ -1,0 +1,50 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>search</title>
+</head>
+<body>
+    @Html.DropDownList("cinfo")
+    <!--dropdownlist name should be same as viewbag var name to populate listitems based on collection-->
+    <br />
+    <div id="div1" style="background-color:lightblue;font-size:x-large;"></div>
+    <script>
+        $(function () {
+            //bind javascript func to change event of dropdownlist at client side
+            $("#cinfo").change(f1);
+        });
+        //declare change event func f1
+        function f1()
+        {
+            $.ajax({
+                url: "/demo/searchresult",
+                type: "post",
+                data: { "cid": $("#cinfo").val() },
+                cache: false,
+                success: function (r) {
+                    //para r will receive partialview content with prods info
+                    $("#div1").html(r);
+                }
+            });//closing ajax
+        }
+   </script>
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

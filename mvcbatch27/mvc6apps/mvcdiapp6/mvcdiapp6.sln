@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{741E020C-3122-4BDF-BA62-F38F2986DE98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3D8359E6-40A7-4297-8B58-152A32A5AFF1}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "mvcdiapp6", "src\mvcdiapp6\mvcdiapp6.xproj", "{5F0FB7BD-F270-4CC0-9758-55B40D700C29}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5F0FB7BD-F270-4CC0-9758-55B40D700C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F0FB7BD-F270-4CC0-9758-55B40D700C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F0FB7BD-F270-4CC0-9758-55B40D700C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F0FB7BD-F270-4CC0-9758-55B40D700C29}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5F0FB7BD-F270-4CC0-9758-55B40D700C29} = {741E020C-3122-4BDF-BA62-F38F2986DE98}
+	EndGlobalSection
+EndGlobal

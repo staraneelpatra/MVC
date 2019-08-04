@@ -1,0 +1,34 @@
+﻿@model mvcmoviesgalleryapp.Models.moviemodel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>create</title>
+</head>
+<body>
+    @using(Html.BeginForm("store","movies",FormMethod.Post))
+    {
+        <div style="font-size:x-large;background-color:bisque;width:40%">
+            movieid:@Html.TextBoxFor(m=>m.movieid) 
+            <br />
+            name:@Html.TextBoxFor(m=>m.moviename)
+            <br />
+            videofile:<input type="file" name="fu1" />
+            <br />
+            <input type="submit" value="submit" />
+       </div>
+   }
+</body>
+
+
+
+
+
+
+</html>

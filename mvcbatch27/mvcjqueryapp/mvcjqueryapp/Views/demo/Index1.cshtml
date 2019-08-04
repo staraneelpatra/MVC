@@ -1,0 +1,49 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <div id="div1" style="background-color:bisque;font-size:x-large;width:30%">
+        <h3 style="background-color:black;color:white">
+            news info
+        </h3>
+        *pm visit to japan <br />
+        *ind vs eng test match <br />
+        *sensex is volatile
+    </div>
+    <br />
+    DOJ:<input type="text" id="t1" title="select date" /> <br />
+    DOJ:<input type="date" id="t2" title="select date" />
+    <script>
+        $(function () {
+            //body onload function using jquery
+            $("#div1").draggable();
+            $("#t1").datepicker({dateFormat:"dd/mm/yy"});
+            $("#t2").tooltip();
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+  
+</body>
+</html>

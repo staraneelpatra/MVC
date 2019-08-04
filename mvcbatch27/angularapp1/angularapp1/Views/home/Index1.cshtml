@@ -1,0 +1,41 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html ng-app="app1">
+<head ng-controller="ctrl1">
+    
+    <meta name="viewport" content="width=device-width" />
+    <title>{{title}}</title>
+</head>
+<body >
+    <div ng-controller="ctrl2">
+        <input ng-model="msg" />
+        <br />
+        <input ng-model="msg" />
+        <br />
+        {{::msg}}
+        <br />
+        {{msg}}
+    </div>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script>
+        var app = angular.module("app1", []);
+        //create first controller
+        app.controller("ctrl1", function ($scope) {
+            $scope.title = "angular app";
+        });
+        //create second controller
+        app.controller("ctrl2", function ($scope) {
+            $scope.msg = "hello";
+        });
+    </script>
+</body>
+
+
+
+
+</html>

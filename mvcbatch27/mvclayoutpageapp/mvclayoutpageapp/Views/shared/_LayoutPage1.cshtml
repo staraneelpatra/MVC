@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/content/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body style="background-color:lightblue">
+    <table style="width:100%">
+        <!--1st row-->
+        <tr>
+            <td style="width:30%">
+                <img src="~/images/1.jpg" height="70" width="70" class="img-circle" id="img1" />
+            </td>
+            <td style="width:70%">
+                <h3>way 2 success...</h3>
+                <nav class="navbar-inverse">
+                    <a href="~/home/aboutus" class="btn btn-primary">aboutus</a>
+                    <a href="~/home/contactus" class="btn btn-primary">contactus</a>
+                </nav>
+            </td>
+        </tr>
+        <!--2nd row-->
+        <tr>
+            <td style="width:30%" class="btn-group-vertical">
+                <a href="~/home/tutorials" class=" btn btn-primary">tutorials</a>
+                <a href="~/home/books" class=" btn btn-success ">books</a>
+            </td>
+            <td style="width:70%">
+                @RenderBody()
+            </td>
+        </tr>
+        <!--3rd row-->
+        <tr>
+            <td style="width:100%" colspan="2">
+                @if (IsSectionDefined("s1"))
+                {
+                    @RenderSection("s1", false)
+                }
+                else
+                {
+                    <h2>default content</h2>
+                }
+            </td>
+        </tr>
+        
+        <!--4th row-->
+        <tr>
+            <td colspan="2" style="width:100%" class="navbar-fixed-bottom">
+                copyrights&copy; reserved to ..
+            </td>
+        </tr>
+
+
+    </table>
+
+</body>
+
+
+
+</html>

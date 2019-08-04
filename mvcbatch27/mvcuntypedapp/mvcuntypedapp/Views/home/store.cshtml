@@ -1,0 +1,30 @@
+﻿@model mvcuntypedapp.Models.customermodel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>store</title>
+</head>
+<body>
+   <h2>
+       name:@Model.custname <br />
+       roomtype:@Model.roomtype <br />
+       amenities:<br />
+        @Html.Raw(Model.amenities)
+   </h2>
+</body>
+
+
+
+
+
+
+
+
+</html>

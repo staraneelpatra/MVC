@@ -1,0 +1,11 @@
+﻿fieldset{
+    background-color:lightgreen;
+    font-size:x-large;
+    border-color:red;
+    border-style:groove;
+    width:40%
+}
+table{
+    background-color:lightblue;
+    font-size:x-large;
+}

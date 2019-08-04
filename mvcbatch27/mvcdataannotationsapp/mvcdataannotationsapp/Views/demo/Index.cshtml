@@ -1,0 +1,149 @@
+﻿@model mvcdataannotationsapp.Models.usermodel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+
+
+
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using(Html.BeginForm("store","demo",FormMethod.Post))
+    {
+        <div class="container" style="background-color:lightgray;border:2px solid;font-size:large;">
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.LabelFor(u=>u.name)
+                </div>
+                <div class="col-md-4">
+                    @Html.EditorFor(u=>u.name)
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(u=>u.name)
+                </div>
+            </div>
+            <!--2nd row-->
+            <div class="row">
+                <div class="col-md-4">
+                    @Html.LabelFor(u=>u.password)
+                </div>
+                <div class="col-md-4">
+                    @Html.EditorFor(u=>u.password)
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(u=>u.password)
+                </div>
+            </div>
+            <!--3rd row-->
+            <div class="row">
+                <div class="col-md-4">
+                    confirmpassword
+                </div>
+                <div class="col-md-4">
+                    @Html.EditorFor(u=>u.confirmpassword)
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(u=>u.confirmpassword)
+                </div>
+            </div>
+            <!--4th row-->
+            <div class="row">
+                <div class="col-md-4">
+                    address
+                </div>
+                <div class="col-md-4">
+                    @Html.EditorFor(u=>u.address)
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(u=>u.address)
+                </div>
+            </div>
+            <!--5th row-->
+            <div class="row">
+                <div class="col-md-4">
+                    age
+                </div>
+                <div class="col-md-4">
+                    @Html.EditorFor(u=>u.age)
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(u=>u.age)
+                </div>
+            </div>
+            <!--6th row-->
+            <div class="row">
+                <div class="col-md-4">
+                    mobile
+                </div>
+                <div class="col-md-4">
+                    @Html.EditorFor(u=>u.mobile)
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(u=>u.mobile)
+                </div>
+            </div>
+            <!--7th row-->
+            <div class="row">
+                <div class="col-md-4">
+                    emailid
+                </div>
+                <div class="col-md-4">
+                    @Html.EditorFor(u=>u.emailid)
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(u=>u.emailid)
+                </div>
+            </div>
+            <!--8th row-->
+            <div class="row">
+                <div class="col-md-4">
+                    numb
+                </div>
+                <div class="col-md-4">
+                    @Html.EditorFor(u=>u.numb)
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(u=>u.numb)
+                </div>
+            </div>
+            <!--9th row-->
+            <div class="row">
+                <div class="col-md-12">
+                  <input type="submit" value="register" id="b1" />
+                </div>
+            </div>
+       </div> <!--container-->
+    }
+  <script>
+      $(function () {
+          $("#b1").addClass({class:"cancel"})
+      });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

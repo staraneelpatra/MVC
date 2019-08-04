@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <form method="post" action="~/home/validate">
+        <div style="background-color:bisque;font-size:x-large;width:40%">
+            username:<input type="text" name="txtname" /> <br />
+            password:<input type="password" name="txtpassword" /> <br />
+            <input type="submit" value="login" />
+            <h4 style="color:red">
+                @ViewBag.msg
+            </h4>
+        </div>
+    </form>
+
+
+
+    
+</body>
+</html>

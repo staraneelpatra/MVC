@@ -1,0 +1,32 @@
+﻿@model mvccodefirstapp.Models.dept
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>adddept</title>
+</head>
+<body>
+    @using(Html.BeginForm())
+    {
+        <fieldset>
+            <legend>add dept</legend>
+            deptno:@Html.TextBoxFor(d=>d.deptno) 
+            <br />
+            dname:@Html.TextBoxFor(d=>d.dname) 
+            <br />
+            <input type="submit" value="save" />
+        </fieldset>
+     }
+
+
+
+    
+</body>
+</html>

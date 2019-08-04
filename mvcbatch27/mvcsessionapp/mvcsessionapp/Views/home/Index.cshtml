@@ -1,0 +1,48 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="stylesheet" href="~/content/@Session["scss"].ToString()" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <form id="form1" method="post" action="~/home/store">
+        <select name="s1" onchange="f1()">
+            <option>-select css-</option>
+            <option value="standard.css">standard</option>
+            <option value="classic.css">classic</option>
+        </select>
+    </form>
+    <h4>
+        <a href="~/home/register">register</a> <br />
+        <a href="~/home/login">login</a>
+    </h4>
+    <script>
+        function f1()
+        {
+            window.alert("onchange event call");
+            document.getElementById("form1").submit();//it will submit form data[select tag option value] to store action
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+</body>
+</html>

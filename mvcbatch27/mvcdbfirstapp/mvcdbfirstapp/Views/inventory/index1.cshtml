@@ -1,0 +1,65 @@
+﻿@model IEnumerable<mvcdbfirstapp.Models.category>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title>index1</title>
+</head>
+<body>
+    <div id="div1">
+        @foreach(var c in Model)
+        {
+            //header
+            <h2>@c.catename</h2>
+            //content
+            <div>
+                <table style="font-size:x-large;" border="1">
+                    <tr>
+                        <th>pid</th>
+                        <th>name</th>
+                        <th>price</th>
+                    </tr>
+                    @foreach(var p in c.products)
+                    {
+                        <tr>
+                            <td>@p.prodid</td>
+                            <td>@p.prodname</td>
+                            <td>@p.prodprice</td>
+                        </tr>
+                    }
+                </table>
+            </div>//closing content
+        }
+    </div>
+    <script>
+        $(function () {
+            $("#div1").accordion({ collapsible: true });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

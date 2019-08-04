@@ -1,0 +1,49 @@
+﻿@model IEnumerable<mvccodefirstapp.Models.dept>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>displaydepts</title>
+</head>
+<body>
+    <table id="table1">
+        <tr style="background-color:brown">
+            <th>deptno</th>
+            <th>dname</th>
+            <th></th>
+        </tr>
+        @foreach(var d in Model)
+        {
+            <tr>
+                <td>@d.deptno</td>
+                <td>@d.dname</td>
+                <td>
+                    <a href="~/company/editdept/@d.deptno">edit</a>|
+                    <a href="~/company/deletedept/@d.deptno" onclick="return confirm('do you want to delete rec?')">
+                        delete
+                    </a>
+                </td>
+            </tr>
+         }
+    </table>
+    <script>
+        $(function () {
+            $("#table1 tr:odd").css("background-color", "lightgreen");//it will apply background color to odd number rows in table1
+       });
+    </script>
+
+
+
+
+
+
+   
+</body>
+</html>

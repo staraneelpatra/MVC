@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mvcbatch26ModelStoreContainer" CdmEntityContainer="mvcbatch26Entities">
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="mvcbatch26Model.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="prodid" ColumnName="prodid" />
+          <ScalarProperty Name="prodname" ColumnName="prodname" />
+          <ScalarProperty Name="prodprice" ColumnName="prodprice" />
+          <ScalarProperty Name="cateid" ColumnName="cateid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

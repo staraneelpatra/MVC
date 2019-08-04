@@ -1,0 +1,36 @@
+﻿@model mvcformsauthapp.Models.usersinfo
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>login</title>
+</head>
+<body>
+    @using(Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div style="background-color:bisque;font-size:x-large;width:50%;margin:5px">
+            username:@Html.TextBoxFor(u=>u.username) <br />
+            password:@Html.TextBoxFor(u=>u.password) <br />
+            <input type="submit" value="login" class="btn btn-primary" />
+            <br />
+            <input type="checkbox" name="c1" />stay signed in <br />
+            new user?
+            <a href="~/home/register">signup</a>
+            <h4 style="color:red">
+                @ViewBag.msg
+            </h4>
+        </div>
+    }
+</body>
+
+
+
+</html>

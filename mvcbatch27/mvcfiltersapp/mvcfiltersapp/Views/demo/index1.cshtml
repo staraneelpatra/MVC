@@ -1,0 +1,33 @@
+﻿@model mvcfiltersapp.Models.blogreader
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>index1</title>
+</head>
+<body>
+    
+    @using(Html.BeginForm("store","demo",FormMethod.Post))
+    {
+        <div style="background-color:lightgray;font-size:x-large;width:40%">
+            name:@Html.TextBoxFor(u=>u.name) <br />
+            comment:<br />
+            @Html.TextAreaFor(u=>u.comment) <br />
+            <input type="submit" value="submit" />
+        </div>
+    }
+ </body>
+
+
+
+
+
+
+
+</html>

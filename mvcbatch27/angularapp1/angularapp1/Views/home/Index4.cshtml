@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/angular.js"></script>
+    <script src="~/Scripts/angular-route.js"></script>
+    <script>
+        //var app = angular.module("app", ["ngRoute"]);
+        //app.config(function ($routeProvider) {
+        //    $routeProvider
+        //    .when("/aboutus", {
+        //        templateUrl:"templates/aboutus.html"
+        //    })
+        //    .when("/contactus", {
+        //        templateUrl:"templates/contactus.html"
+        //    })
+        //});//closing app.config method
+
+    
+    var app=angular.module("app",["ngRoute"]);
+    app.config(function ($routeProvider) {
+        $routeProvider
+            .when("/contactus", {
+                templateUrl:"templates/contactus.html"
+            })
+        .when("/aboutus",{
+            templateUrl:"templates/aboutus.html"
+        })
+    });
+    </script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index4</title>
+</head>
+<body ng-app="app">
+    <div style="font-size:x-large"> 
+        <ul>
+            <li>
+                <a href="/#/aboutus">aboutus</a>
+            </li>
+            <li>
+                <a href="/#/contactus">contactus</a>
+            </li>
+        </ul>
+    </div>
+    <div style="font-size:xx-large">
+        <ng-view></ng-view>
+    </div>
+
+
+
+
+</body>
+
+</html>

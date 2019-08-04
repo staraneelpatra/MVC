@@ -1,0 +1,39 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script>
+        //create application level module
+        var app = angular.module("app1", []);
+        //create controller with in app module
+        app.controller("ctrl", function ($scope) {
+            var s = "hello angular";//model not available outside controller
+            $scope.msg = "hello angular..";//model available outside controller with in view[html dom]
+            $scope.f1 = function () {
+                return "hi angular..";
+            }//function available outside controller
+        });
+    </script>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body ng-app="app1">
+    <div ng-controller="ctrl"> 
+        {{msg}}          <!--view-->
+        <hr />
+        {{f1()}}
+        <hr />
+        {{s}}
+    </div>
+</body>
+
+
+
+
+</html>

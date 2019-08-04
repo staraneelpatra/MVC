@@ -1,0 +1,48 @@
+﻿@model mvctypedapp.Models.jobmodel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+     <style>
+         .c1{
+             width:150px;
+         }
+     </style>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using(Html.BeginForm("store","home",FormMethod.Post))
+    {
+        <div style="background-color:bisque;font-size:x-large;width:40%">
+            name:@Html.TextBoxFor(u => u.name, new {@placeholder="name" }) <br />
+            password:@Html.PasswordFor(u=>u.password) <br />
+            gender:@Html.RadioButtonFor(u=>u.gender,"male") male 
+            @Html.RadioButtonFor(u=>u.gender,"female") female
+            <br />
+            country:@Html.DropDownListFor(u=>u.country,new SelectList(ViewBag.countries),"-select-")
+            <br />
+            skillset:@Html.ListBoxFor(u => u.skillset, ViewBag.skillsets as IEnumerable<SelectListItem>, new {@size=2,@class="c1" })
+            <br />
+            @Html.EditorFor(u=>u.termsaccepted) i agree terms and conds
+            <br />
+            <input type="submit" value="register" />
+        </div>
+    }
+
+
+
+
+   
+</body>
+
+
+
+
+
+</html>

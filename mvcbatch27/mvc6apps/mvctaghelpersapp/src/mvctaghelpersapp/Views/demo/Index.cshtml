@@ -1,0 +1,80 @@
+﻿@model usermodel
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/StyleSheet.css" />
+    @*<script src="~/wwwroot/lib/jquery/dist/jquery.js"></script>
+    <script src="~/wwwroot/lib/jquery-validation/jquery.validate.js"></script>
+    <script src="~/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>*@
+    @*<script asp-src-include="~/js/**/*.js"></script>--->working
+    <script src="~/js/jquery.min.js">  -->working
+            </script>
+    <script src="~/js/jquery.validate.js"></script>
+    <script src="~/js/jquery.validate.unobtrusive.min.js">
+
+    </script>*@
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/jquery-validation/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+   <script>
+       $(function () {
+
+           alert("hello..");
+          
+          
+          // $("#username").hide();
+       });
+       function f1() {
+           $.ajax({
+               url: "/demo/m1",
+               type: "get",
+               success: function (r) {
+                   alert(r);
+
+               }
+
+           });
+
+       }
+   </script>
+</head>
+<body>
+    <h2>@ViewBag.name</h2>
+    <h2>@ViewBag.s</h2>
+    <form asp-controller="demo" asp-action="store" method="post" novalidate>
+        <div style="background-color:bisque;font-size:x-large;width:50%">
+         <label asp-for="username"></label>
+            <input type="text" asp-for="username" placeholder="username" data-val="true" />
+            <span asp-validation-for="username"></span>
+            <br />
+            <input type="password" asp-for="password" placeholder="password"/> <br />
+            <input asp-for="age" placeholder="age" />
+            <span asp-validation-for="age"></span>
+             <br />
+            gender:<input type="radio" value="male" asp-for="gender" />male
+            <input type="radio" value="female" asp-for="gender" />female <br />
+            skillset:<select asp-for="skillset" asp-items="@ViewBag.skillsets" size="3" multiple style="width:70px">
+            </select> <br />
+            country:<select asp-for="country" asp-items="new SelectList(ViewBag.countries)"></select>
+            <br />
+            <input type="checkbox" asp-for="termsaccepted" />i agree
+            <br />
+            <input type="submit" value="register" />
+        </div>
+        <div style="color:red;border:3px groove black" asp-validation-summary="ValidationSummary.All"></div>
+   </form>
+    <input type="button" id="b1" value="ajax call m1" onclick="f1()" />
+    
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+</html>

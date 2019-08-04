@@ -1,0 +1,40 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/angular.min.js"></script>
+    <script>
+        var app = angular.module("app1", []);
+        app.controller("ctrl", function ($scope) {
+            $scope.name = "";
+            $scope.qty = 0;
+            $scope.price = 0;
+            $scope.f1 = function () {
+                $scope.info = "name:" + $scope.name + " qty:" + $scope.qty + " price:" + $scope.price;
+            }
+        });
+    </script>
+        <meta name="viewport" content="width=device-width" />
+    <title>Index3</title>
+</head>
+<body ng-app="app1" ng-controller="ctrl">
+    <div style="font-size:x-large"> 
+        name:<input ng-model="name" /><br />
+        qty:<input ng-model="qty"/> 
+        <br />
+        price:<input ng-model="price" type="text"/>  total amt:{{qty*price}}
+        <br />
+        <input type="button" value="save" ng-click="f1()" />
+        <br />
+        {{info}}
+    </div>
+</body>
+
+
+
+</html>

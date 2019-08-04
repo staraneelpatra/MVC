@@ -1,0 +1,27 @@
+﻿@model mvcstrongviewapp.Models.studentmodel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+   <h2>
+       sid:@Model.studid <br />
+       name:@Model.studname <br />
+       photo:<br />
+       <img src="~/images/@Model.studphoto" height="90" width="90" />
+   </h2>
+</body>
+
+
+
+
+
+</html>

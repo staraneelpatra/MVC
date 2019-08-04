@@ -1,0 +1,77 @@
+﻿@model mvcjqueryeventapp.Models.customermodel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <style>
+        span{
+                 color:red;
+                 font-size:large;
+                   }
+    </style>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @using(Html.BeginForm("store","demo",FormMethod.Post))
+    {
+        <div style="background-color:bisque;width:40%">
+            NAME:@Html.TextBoxFor(c=>c.name)
+            <span id="s1">
+            </span>
+            <br />
+            MOBILE:@Html.TextBoxFor(c=>c.mobile)
+            <span id="s2">
+            </span>
+            <br />
+            <input type="submit" value="submit" onclick="return f1()" />
+       </div>
+  }
+    <script>
+        $(function () {
+            //bind javascript func to textboxes for onblur event
+            $("#name").blur(f2);
+            $("#mobile").blur(f3);
+        });
+        function f2()
+        {//this will be executed for name textbox loosing focus
+            if ($("#name").val() == "")
+                $("#s1").html("enter name");
+            else
+                $("#s1").html("");
+        }
+        function f3()
+        {//this will be executed for mobile textbox loosing focus
+            if ($("#mobile").val() == "")
+                $("#s2").html("enter mobile");
+            else if ($("#mobile").val().length != 10)
+                $("#s2").html("enter 10 digit");
+            else
+                $("#s2").html("");
+        }
+        function f1()
+        {//submit button click function[validate page validations are successfull or not]
+            if ($("#s1").html() == "" && $("#s2").html() == "")
+                return true;//validations are successfull
+            else
+                return false;//validations are not successfull
+        }
+    </script>
+
+
+
+
+
+
+
+
+  
+</body>
+</html>

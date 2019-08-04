@@ -1,0 +1,167 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body onload="f1()">
+    <form id="form1">
+        <div style="background-color:lightgreen;font-size:x-large;width:50%">
+            prodid:<input id="prodid" name="prodid" />
+            <input type="button" id="b1" value="search" onclick="f2()" /> <br />
+            name:<input id="prodname" name="prodname" /> <br />
+            price:<input id="prodprice" name="prodprice" /> <br />
+            cateid:<input id="cateid" name="cateid" />
+            <br />
+            <input type="button" id="b2" value="save" onclick="f3()" />
+            <input type="button" id="b3" value="delete" onclick="f4()" />
+            <input type="button" id="b4" value="modify" onclick="f5()" />
+        </div>
+    </form>
+    <h3>products info</h3>
+    <table id="table1" style="background-color:bisque;font-size:x-large;">
+        <tr>
+            <th>pid</th>
+            <th>name</th>
+            <th>price</th>
+        </tr>
+    </table>
+    <script>
+        function clearrec()
+        { //clear textboxes
+            $("#prodid").val("");
+            $("#prodname").val("");
+            $("#prodprice").val("");
+            $("#cateid").val("");
+        }
+        //body onload func
+        function f1()
+        {
+            $.ajax({
+                url: "http://localhost:81/api/inventory",
+                type: "get",
+                headers:{"mytoken":"xyz321"},
+                cache: false,
+                success: function (r) {
+                    //para r will receive prods collection from webapi method getprods
+                    $.each(r, function (i, p) {
+                        $("#table1").append("<tr><td>" + p.prodid + "</td><td>" + p.prodname + "</td><td>" + p.prodprice + "</td></tr>");
+                    });//closing each
+                },
+                error: function () {
+                    alert("server error");
+                }
+            });//closing ajax call
+        }
+        //search button click func
+        function f2()
+        {
+            $.ajax({
+                url: "http://localhost:81/api/inventory",
+                type: "get",
+                cache: false,
+                data: { "id": $("#prodid").val() },
+                success: function (r) {//para r will receive prod info from getprod webapi method
+                    if (r == null) {
+                        alert("prodid not found");
+                        $("#prodid").focus();
+                    }
+                    else {
+                        $("#prodname").val(r.prodname);
+                        $("#prodprice").val(r.prodprice);
+                        $("#cateid").val(r.cateid);
+                    }
+                }//closing success func
+            });//closing ajax call
+        }
+        //save button click func
+        function f3()
+        {
+            $.ajax({
+                url: "http://localhost:81/api/inventory",
+                type: "post",
+                data: { "prodid": $("#prodid").val(), "prodname": $("#prodname").val(), "prodprice": $("#prodprice").val(), "cateid": $("#cateid").val() },
+                success: function (r) {
+                    //para r will receive duplicate|rec added from postproduct webapi method
+                    if(r=="duplicate")
+                    {
+                        alert("prodid already existing");
+                        $("#prodid").focus();
+                    }
+                    else
+                    {
+                        alert("prod info saved");
+                        $("#table1").append("<tr><td>" + $("#prodid").val() + "</td><td>" + $("#prodname").val() + "</td><td>" + $("#prodprice").val() + "</td></tr>");
+                        clearrec();//clearing textboxes
+                    }
+               }//closing success func
+            });//closing ajax call
+       }
+        //delete button click func
+        function f4()
+        {
+            var v = window.confirm("do you want to delete rec?");
+            if(v==true)
+            {
+                $.ajax({
+                    url: "http://localhost:81/api/inventory/"+$("#prodid").val(),
+                    type: "delete",
+                    //data: { "id": $("#prodid").val() },
+                    success: function (r) {
+                        alert("prod info deleted");
+                        $("#table1 td:nth-child(1)").each(function () {
+                            if($(this).text()==$("#prodid").val())
+                            {
+                                $(this).parent("tr").remove();
+                            }
+                        });//closing each
+                        clearrec();
+                    },
+                    error: function () {
+                        alert("server error");
+                    }
+                });//closing ajax call
+            }//closing if
+        }
+        //modify button click func
+        function f5()
+        {
+            $.ajax({
+                url: "http://localhost:81/api/inventory",
+                type: "put",
+                data: $("#form1").serialize(),
+                success: function (r) {
+                    alert("prod info modified");
+                    $("#table1 td:nth-child(1)").each(function () {
+                        if ($(this).text() == $("#prodid").val()) {
+                            $(this).parent("tr").find("td:nth-child(3)").html($("#prodprice").val());
+                        }
+                    });//closing each
+                    clearrec();
+                }//closing success func
+            });//closing ajax call
+       }
+    </script>
+
+
+
+
+
+
+
+
+
+  
+</body>
+</html>

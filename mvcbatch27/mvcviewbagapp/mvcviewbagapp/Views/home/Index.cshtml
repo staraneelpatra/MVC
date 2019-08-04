@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <ul type="square" style="font-size:x-large">
+        @foreach(var c in ViewBag.courses)
+        {
+            <li>
+                @c
+            </li>
+       }
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+</body>
+</html>

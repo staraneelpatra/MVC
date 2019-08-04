@@ -1,0 +1,94 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jtable/jquery.jtable.min.js"></script>
+    <link href="~/Scripts/jtable/themes/metro/blue/jtable.min.css" rel="stylesheet" />
+    <link href="~/Content/themes/base/all.css" rel="stylesheet" />
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div id="div1"> 
+    </div>
+    <script>
+        $(function () {
+            //activate jtable plugin with div1 tag
+            $("#div1").jtable({
+                title: "students info",
+                sorting: true,
+                defaultSorting: "studid ASC",
+                paging: true,
+                pageSize: 2,
+                cache: false,//response will not be cached
+                selecting: true, //Enable selecting
+                multiselect: true, //Allow multiple selecting
+                selectingCheckboxes: true, //Show checkboxes on first column
+                //selectOnRowClick: false, //Enable this to only select using checkboxes
+                actions: {
+                    listAction: "/demo/getstuds",
+                    createAction: "/demo/addstudent",
+                    deleteAction: "/demo/deletestudent",
+                    updateAction:"/demo/updatestudent"
+                },
+                fields: {
+                    studid: {
+                        title: "sid",//col heading
+                        key: true,//pk
+                        list: true,//col will be displayed with table
+                        create: true,//col will be display with adding rec
+                        edit:true //col will be dislayed with modifying rec
+                    },
+                    studname: {
+                        title: "name", //default type is textbox
+                        type:"img",
+                        display: function (data) {
+                            //    return '<img src=/' + data.record.studname + ' height=30 width=30> ' + ':<b>' + data.record.studname + '</b>';
+                            return "<b>" + data.record.studname + "</b>";
+                        }
+                    },
+                    studaddr: {
+                        title: "address",
+                        type:"textarea"
+                    },
+                    studgender: {
+                        title: "gender",
+                        type: "radiobutton",
+                        options:{"male":"male","female":"female"},
+                        edit:false
+                    },
+                    studcity: {
+                        title: "city",
+                        options:{"-select-":"-select-","hyd1":"hyd","banglore":"banglore","noida":"noida"}
+                    },//value:text
+                    studdob: {
+                        title: "doj",
+                        type: "date",
+                        //displayFormat:"dd/mm/yy"
+                    }
+                }//closing fields
+         });//closing plugin
+            $("#div1").jtable("load");//it will call listaction to display students info
+        });//closing body onload func
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

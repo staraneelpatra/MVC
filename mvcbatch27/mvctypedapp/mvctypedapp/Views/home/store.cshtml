@@ -1,0 +1,41 @@
+﻿@model mvctypedapp.Models.jobmodel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>store</title>
+</head>
+<body>
+ <h2>
+     name:@Model.name <br />
+     password:@Model.password <br />
+     gender:@Model.gender <br />
+     country:@Model.country <br />
+     skillset:
+     @{
+         string s = "";
+         for (byte i = 0; i < Model.skillset.Length;i++)
+         {
+             s = s + Model.skillset[i] + "<br>";
+         }
+         
+     }
+     @Html.Raw(s)
+     termsaccepted:@Model.termsaccepted 
+ </h2>
+</body>
+
+
+
+
+
+
+
+
+</html>

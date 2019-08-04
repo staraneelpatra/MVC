@@ -1,0 +1,55 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    
+
+
+
+
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body onload="f1()">
+    <span id="s1" style="background-color:bisque;font-size:x-large">
+        loading news..
+    </span>
+    <br />
+    <div style="background-color:lightblue;font-size:x-large;width:40%"> 
+        username:<input name="t1" /> <br />
+        password:<input name="t2" />
+    </div>
+    <script>
+        function f1()
+        {//send an ajax call to getnews method
+            $.ajax({
+                url: "/demo/getnews",
+                type: "get",
+                cache: false,
+                success:function(response)
+                {//para will receive news info from controller method getnews
+                    $("#s1").html(response);
+               }
+            });//closing ajax call
+            window.setTimeout("f1()", 1000);//recursive call to func f1 at regular interval of 1000milli secs[1sec]
+        }//closing func f1
+    </script>
+
+
+
+</body>
+
+
+
+
+
+
+
+
+</html>

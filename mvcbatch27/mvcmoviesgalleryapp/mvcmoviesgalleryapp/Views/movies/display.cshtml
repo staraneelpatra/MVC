@@ -1,0 +1,61 @@
+﻿@model IEnumerable<mvcmoviesgalleryapp.Models.moviemodel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>display</title>
+</head>
+<body>
+    <table style="background-color:lightblue;border:4px solid red;padding:4px;margin:6px;">
+        <tr>
+            <!--1st col-->
+            <td>
+                <table border="1" style="background-color:lightgreen;font-size:x-large;border:3px groove black;padding:5px;margin:4px;">
+                    <tr>
+                        <th>movieid</th>
+                        <th>name</th>
+                        <th></th>
+                    </tr>
+                    @foreach(var m in Model)
+                    {
+                        <tr>
+                            <td>@m.movieid</td>
+                            <td>@m.moviename</td>
+                            <td>
+                                <a href="~/videos/@m.moviefile" target="f1">play</a>|
+                                <a href="~/movies/delete/@m.movieid">delete</a>
+                            </td>
+                        </tr>
+                    }
+               </table>
+            </td>
+            <!--2nd col of outter table row-->
+            <td>
+                <iframe height="300" width="300" name="f1"></iframe>
+            </td>
+        </tr>
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>

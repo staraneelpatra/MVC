@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <meta name="viewport" content="width=device-width" />
+    <title>index1</title>
+</head>
+<body>
+    @Html.DropDownList("cateinfo")
+    @*provide dropdownlist name same as viewbag var name,so that listitems will be created based on viewbag var collection*@
+    <select id="s1"></select>
+    <script>
+        $(function () {
+            //bind javascript func to change event of dropdownlist
+            $("#cateinfo").change(f1);
+        });
+        //dropdownlist change event func
+        function f1()
+        {//send an ajax call to server method to get prods based on user selected category
+            $.ajax({
+                url: "/demo/getprods",
+                type: "post",
+                cache: false,
+                data: { "cid": $("#cateinfo").val() },
+                success:getprodsresult
+            });//closing ajax call
+        }//closing func f1
+        //success func declaration
+        function getprodsresult(r)
+        {//para r will receive prods info from getprods method
+            $("#s1").empty();//it will remove listitems from dropdownlist s1
+            $("#s1").append(new Option("-select prod"));
+            $.each(r, function (i, p) {
+                $("#s1").append(new Option(p.prodname, p.prodid));
+            });//closing each method
+        }//closing getprodsresult func
+    </script>
+
+
+
+    
+</body>
+</html>
