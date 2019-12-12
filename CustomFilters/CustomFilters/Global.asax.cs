@@ -10,7 +10,7 @@ namespace CustomFilters
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
-            App_Start.FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
         }
     }
 }

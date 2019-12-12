@@ -1,23 +1,23 @@
 ﻿<Properties StartupConfiguration="{B700A063-D9A8-4FBB-9B51-C75EAC0CF30B}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="CustomFilters/Global.asax.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CustomFilters/App_Start/FilterConfig.cs">
     <Files>
       <File FileName="CustomFilters/Controllers/HomeController.cs" Line="12" Column="25" />
-      <File FileName="CustomFilters/Filters/CustomLogFilter.cs" Line="14" Column="1" />
-      <File FileName="CustomFilters/App_Start/FilterConfig.cs" Line="14" Column="1" />
-      <File FileName="CustomFilters/Global.asax.cs" Line="13" Column="81" />
-      <File FileName="CustomFilters/App_Start/RouteConfig.cs" Line="1" Column="1" />
+      <File FileName="CustomFilters/Filters/CustomLogFilter.cs" />
+      <File FileName="CustomFilters/App_Start/FilterConfig.cs" Line="12" Column="6" />
+      <File FileName="CustomFilters/Global.asax.cs" />
+      <File FileName="CustomFilters/App_Start/RouteConfig.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CustomFilters" expanded="True">
             <Node name="CustomFilters" expanded="True">
-              <Node name="App_Start" expanded="True" />
+              <Node name="App_Start" expanded="True">
+                <Node name="FilterConfig.cs" selected="True" />
+              </Node>
               <Node name="Controllers" expanded="True" />
               <Node name="Filters" expanded="True" />
-              <Node name="Global.asax" expanded="True">
-                <Node name="Global.asax.cs" selected="True" />
-              </Node>
+              <Node name="Global.asax" expanded="True" />
             </Node>
           </Node>
         </State>

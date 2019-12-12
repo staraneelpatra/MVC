@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web.Mvc;
 
-namespace CustomFilters.App_Start
+namespace CustomFilters
 {
     public class FilterConfig
     {
